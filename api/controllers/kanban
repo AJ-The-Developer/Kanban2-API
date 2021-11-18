@@ -35,6 +35,13 @@ exports.sprint_get_single = (req, res, next) =>{
 }
 
 exports.update_lists = (req, res, next) =>{
-    Sprints
-
+    Sprints.findByIdAndUpdate(
+        req.params._id,
+        req.body,
+        {new: true},
+        (err, kanban) => {
+            if (err) return res.status(500).send(err);
+            return res.send(todo)
+        }
+    )
 }
