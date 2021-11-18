@@ -2,7 +2,7 @@ const Kanban = require('../models/sprintSchema');
 const mongoose = require('mongoose');
 
 exports.sprint_get_single = (req, res, next) =>{
-    Kanban.find( {_id:req.params._id} ,(err, kanban) => {
+    Kanban.findById( req.params._id ,(err, kanban) => {
         if (err) return res.status(500).send(err)
         return res.status(200).send(kanban)
     })
