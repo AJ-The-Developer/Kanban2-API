@@ -2,7 +2,7 @@ const Kanban = require('../models/sprintSchema');
 const mongoose = require('mongoose');
 
 exports.sprint_get_single = (req, res, next) =>{
-    Sprints.find({_id: req.params._id})
+    Kanban.find({_id: req.params._id})
     .select('_id sprName project lists')
     .exec()
     .then(doc => {
@@ -35,7 +35,7 @@ exports.sprint_get_single = (req, res, next) =>{
 }
 
 exports.update_lists = (req, res, next) =>{
-    Sprints.findByIdAndUpdate(
+    Kanban.findByIdAndUpdate(
         req.params._id,
         req.body,
         {new: true},
